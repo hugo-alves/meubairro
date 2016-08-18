@@ -25,8 +25,10 @@
         <td><%= reco.latitude %></td>
         <td><%= reco.longitude %></td>
         <td><%= link_to 'Show', reco %></td>
-        <td><%= link_to 'Edit', edit_reco_path(reco) %></td>
-        <td><%= link_to 'Destroy', reco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if reco.user == current_user %>
+          <td><%= link_to 'Edit', edit_reco_path(reco) %></td>
+          <td><%= link_to 'Destroy', reco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -14,7 +14,7 @@ class RecosController < ApplicationController
 
   # GET /recos/new
   def new
-    @reco = Reco.new
+    @reco = current_user.recos.build
   end
 
   # GET /recos/1/edit
@@ -25,7 +25,7 @@ class RecosController < ApplicationController
   # POST /recos.json
   def create
     @reco = Reco.new(reco_params)
-
+    @reco.user_id = current_user.id
     respond_to do |format|
       if @reco.save
         format.html { redirect_to @reco, notice: 'Reco was successfully created.' }
@@ -69,6 +69,6 @@ class RecosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reco_params
-      params.require(:reco).permit(:name, :description, :rating, :address, :latitude, :longitude)
+      params.require(:reco).permit(:name, :description, :rating, :address, :latitude, :longitude, :user_id, :category, :day_time, :photo, :weather_type)
     end
 end
