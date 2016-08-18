@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818153837) do
+ActiveRecord::Schema.define(version: 20160818165533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,17 @@ ActiveRecord::Schema.define(version: 20160818153837) do
 
   add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
 
+  create_table "points", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "value"
+    t.string   "category"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
+
   create_table "recos", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -74,6 +85,19 @@ ActiveRecord::Schema.define(version: 20160818153837) do
     t.string   "weather_type"
     t.string   "bairro"
   end
+
+  create_table "scorecards", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "daily"
+    t.integer  "weekly"
+    t.integer  "monthly"
+    t.integer  "yearly"
+    t.integer  "lifetime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scorecards", ["user_id"], name: "index_scorecards_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

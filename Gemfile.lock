@@ -86,6 +86,8 @@ GEM
       sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    honor (2.0.1)
+      rails (>= 4.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -236,6 +238,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass
+  honor
   jbuilder (~> 2.0)
   jquery-rails
   pg

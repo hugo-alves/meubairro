@@ -20,6 +20,8 @@ gem 'cloudinary'
 gem 'carrierwave'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'commontator', '~> 4.11.1'
+gem 'honor'
+
 
 
 
