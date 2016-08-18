@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  resources :recos
+  resources :recos do
+    member do
+      put "like", to: "recos#upvote"
+      put "dislike", to: "recos#downvote"
+    end
+  end
+
   devise_for :users
-  root to: 'pages#home'
+  mount Commontator::Engine => '/commontator'
+
+  root to: 'recos#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

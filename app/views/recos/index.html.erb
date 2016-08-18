@@ -18,6 +18,18 @@
   <tbody>
     <% @recos.each do |reco| %>
       <tr>
+        <td>
+          <%= link_to like_reco_path(reco), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-up"></span>
+            <%= reco.get_upvotes.size %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to dislike_reco_path(reco), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-down">
+            <%= reco.get_downvotes.size %>
+          <% end %>
+        </td>
         <td><%= reco.name %></td>
         <td><%= reco.description %></td>
         <td><%= reco.rating %></td>
