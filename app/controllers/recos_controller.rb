@@ -69,6 +69,6 @@ class RecosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reco_params
-      params.require(:reco).permit(:name, :description, :rating, :address, :latitude, :longitude, :user_id, :category, :day_time, :photo, :weather_type)
+      params.require(:reco).permit(:name, :description, :rating, :address, :latitude, :longitude, :user_id, :category, :day_time, :photo, :photo_cache, :weather_type)
     end
 end

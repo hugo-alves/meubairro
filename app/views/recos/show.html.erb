@@ -1,34 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @reco.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @reco.description %>
-</p>
+<div id="mainContainer" class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= @reco.name %></div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <p><%= cl_image_tag(@reco.photo, class:"img-responsive img-show", :crop => :fill)%></p>
+            </div>
+            <div class="panel-body">
+              <p class="description"><%= @reco.description %> </p>
+              <p class="address">Address:</p> <%= @reco.address %> 
+              <p class="category">Category: <%= @reco.category %> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @reco.rating %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @reco.address %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @reco.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @reco.longitude %>
-</p>
 
 <%= link_to 'Edit', edit_reco_path(@reco) %> |
 <%= link_to 'Back', recos_path %>
