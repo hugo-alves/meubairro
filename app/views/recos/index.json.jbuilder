@@ -1,0 +1,1 @@
+json.array! @recos, partial: 'recos/reco', as: :reco

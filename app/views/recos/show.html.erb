@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @reco.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @reco.description %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @reco.rating %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @reco.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @reco.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @reco.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_reco_path(@reco) %> |
+<%= link_to 'Back', recos_path %>
