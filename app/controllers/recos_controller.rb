@@ -15,6 +15,7 @@ class RecosController < ApplicationController
   # GET /recos/new
   def new
     @reco = current_user.recos.build
+    @reco.bairro = params[:location]
   end
 
   # GET /recos/1/edit
