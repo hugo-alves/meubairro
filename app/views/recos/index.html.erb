@@ -36,8 +36,6 @@
                     <p>Distance: <%= (reco.distance_from([params[:latitude],params[:longitude]], :km) * 1000).round %> meters</p>
                   <% end %>
                   <div class="footer-card">
-                    <p><%= link_to "Show me the way", "http://maps.google.com/maps?saddr=#{params[:latitude]},#{params[:longitude]}&daddr=#{reco.latitude},#{reco.longitude}&ie=UTF8&dirflg=w" , :class => "pull-right", :target => '_blank' %>
-                    </p>
                       <%= link_to like_reco_path(reco), method: :put, class: "btn btn-default btn-sm" do %>
                         <span class="glyphicon glyphicon-chevron-up"></span>
                         <%= reco.get_upvotes.size %>
