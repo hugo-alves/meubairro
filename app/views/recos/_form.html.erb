@@ -1,24 +1,36 @@
-<%= simple_form_for(@reco) do |f| %>
-  <%= f.error_notification %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <%= simple_form_for(@reco) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :rating %>
-    <%= f.input :bairro,:readonly => true %>
-    <%= f.input :address %>
-    <%= f.input :day_time %>
-    <%= f.input :weather_type %>
-    <%= f.input :category %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :rating %>
+          <%= f.input :bairro,:readonly => true %>
+          <%= f.input :address %>
+          <%= f.input :day_time %>
+          <%= f.input :weather_type %>
+          <%= f.input :category %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
 
 
 
+
+        </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+      <% end %>
+
+
+    </div>
 
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>
+
+
