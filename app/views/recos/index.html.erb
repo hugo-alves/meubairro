@@ -1,46 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Recos</h1>
+<h1>Places in my neighborhood</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Rating</th>
-      <th>Address</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @recos.each do |reco| %>
       <tr>
-        <td>
-          <%= link_to like_reco_path(reco), method: :put, class: "btn btn-default btn-sm" do %>
-            <span class="glyphicon glyphicon-chevron-up"></span>
-            <%= reco.get_upvotes.size %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to dislike_reco_path(reco), method: :put, class: "btn btn-default btn-sm" do %>
-            <span class="glyphicon glyphicon-chevron-down">
-            <%= reco.get_downvotes.size %>
-          <% end %>
-        </td>
-        <td><%= reco.name %></td>
-        <td><%= reco.description %></td>
-        <td><%= reco.rating %></td>
-        <td><%= reco.address %></td>
-        <td><%= reco.latitude %></td>
-        <td><%= reco.longitude %></td>
-        <td><%= link_to 'Show', reco %></td>
-        <% if reco.user == current_user %>
-          <td><%= link_to 'Edit', edit_reco_path(reco) %></td>
-          <td><%= link_to 'Destroy', reco, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3" >
+            <div class="well">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <%= link_to reco_path(reco) do%>
+                    <div class="card-name"><%= reco.name %></div>
+                    <p><%= cl_image_tag reco.photo, :class => "img-responsive img-show" %></p>
+                  <% end %>
+                </div>
+                <div class="panel-body">
+                  <div class="clearfix"></div>
+                  <hr>
+                  <p class="description"><%= reco.description %></p>
+                  <p><%= reco.address %></p>
+
+                  <% if params[:latitude].present? %>
+                    <p>Distance: <%= (reco.distance_from([params[:latitude],params[:longitude]], :km) * 1000).round %> meters</p>
+                  <% end %>
+                  <div class="footer-card">
+                    <p><%= link_to "Show me the way", "http://maps.google.com/maps?saddr=#{params[:latitude]},#{params[:longitude]}&daddr=#{reco.latitude},#{reco.longitude}&ie=UTF8&dirflg=w" , :class => "pull-right", :target => '_blank' %>
+                    </p>
+                      <%= link_to like_reco_path(reco), method: :put, class: "btn btn-default btn-sm" do %>
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                        <%= reco.get_upvotes.size %>
+                      <% end %>
+                      <%= link_to dislike_reco_path(reco), method: :put, class: "btn btn-default btn-sm" do %>
+                        <span class="glyphicon glyphicon-chevron-down">
+                        <%= reco.get_downvotes.size %>
+                      <% end %>
+                      <div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </tr>
     <% end %>
   </tbody>

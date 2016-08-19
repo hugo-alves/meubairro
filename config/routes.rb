@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :recos, only: [ :patch ]
+    end
+  end
+
   devise_for :users
   mount Commontator::Engine => '/commontator'
 
