@@ -2,13 +2,7 @@
 
 <h1>Places in my neighborhood</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <%= render "shared/map" %>
-    </div>
-  </div>
-</div>
+
 
 <table>
 
@@ -60,5 +54,13 @@
 </table>
 
 <br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <%= render "shared/map" %>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'New Reco', new_reco_path %>
