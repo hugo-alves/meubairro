@@ -257,6 +257,7 @@ DEPENDENCIES
   rails_12factor
   rails_db
   redis
+  rest-client
   sass-rails
   simple_form
   simple_token_authentication
