@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  resources :recos do
+  post '/rate' => 'rater#create', :as => 'rate'
+  resources :recommendations do
     member do
-      put "like", to: "recos#upvote"
-      put "dislike", to: "recos#downvote"
+      put "like", to: "recommendations#upvote"
+      put "dislike", to: "recommendations#downvote"
     end
   end
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :recos, only: [ :patch ]
+      resources :recommendations, only: [ :patch ]
     end
   end
 

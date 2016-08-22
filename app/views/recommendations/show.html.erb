@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<div id="mainContainer" class="container-fluid">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+    <div class="card" id="cardshow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @recommendation.photo %>);">
+      <div class="card-category"><%= @recommendation.address %></div>
+      <div class="card-description">
+        <h2><%= @recommendation.name %></h2>
+        <p><%= @recommendation.description %></p>
+      </div>
+      <%= link_to "" , recommendation_path(@recommendation), :class => "card-link" %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+      <%= commontator_thread(@recommendation) %>
+      <%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+      <%= link_to 'Back', recommendations_path %>
+    </div>
+  </div>
+</div>
+
+
