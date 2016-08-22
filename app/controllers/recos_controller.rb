@@ -1,11 +1,12 @@
 class RecosController < ApplicationController
   before_action :set_reco, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   # GET /recos
   # GET /recos.json
   def index
     @recos = Reco.all
-  end
+    @location = params[:location]
+    @recos = @recos.select { |place| place[:bairro].downcase == @location.downcase }  end
 
   # GET /recos/1
   # GET /recos/1.json
