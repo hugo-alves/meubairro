@@ -1,1 +1,0 @@
-json.partial! "recos/reco", reco: @reco

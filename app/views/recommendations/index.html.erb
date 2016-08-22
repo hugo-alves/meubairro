@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<h1 class="text-center">Places in my neighborhood</h1>
+<% @recommendations.each do |recommendation| %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-md-offset-3" >
+      <div class="well">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= link_to recommendation_path(recommendation) do%>
+            <p><%= cl_image_tag recommendation.photo, :class => "img-responsive img-show" %></p>
+            <div class="card-name"><%= recommendation.name %></div>
+            <% end %>
+          </div>
+          <div class="panel-body">
+          <div class="card-name"><%= recommendation.name %></div>
+            <div class="clearfix"></div>
+            <hr>
+            <p class="description"><%= recommendation.description %></p>
+            <p><%= recommendation.address %></p>
+            <% if params[:latitude].present? %>
+            <p>Distance: <%= (recommendation.distance_from([params[:latitude],params[:longitude]], :km) * 1000).round %> meters</p>
+            <% end %>
+            <div class="footer-card">
+              <%= link_to like_recommendation_path(recommendation), method: :put, class: "btn btn-success btn-lg" do %>
+              <span class="glyphicon glyphicon-chevron-up"></span>
+              <%= recommendation.get_upvotes.size %>
+              <% end %>
+              <%= link_to dislike_recommendation_path(recommendation), method: :put, class: "btn btn-danger btn-lg" do %>
+              <span class="glyphicon glyphicon-chevron-down">
+                <%= recommendation.get_downvotes.size %>
+                <% end %>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= render "shared/map", path: new_recommendation_path %>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'New Recommendation', new_recommendation_path %>
