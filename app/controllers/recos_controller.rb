@@ -5,6 +5,8 @@ class RecosController < ApplicationController
   # GET /recos.json
   def index
     @recos = Reco.all
+    @location = params[:location]
+    @recos = @recos.select { |place| place[:bairro].downcase == @location.downcase }
   end
 
   # GET /recos/1
