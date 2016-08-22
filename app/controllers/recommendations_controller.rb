@@ -6,7 +6,8 @@ class RecommendationsController < ApplicationController
   def index
     @recommendations = Recommendation.all
     @location = params[:location]
-    @recommendations = @recosmmendation.select { |place| place[:bairro].downcase == @location.downcase }  end
+    @recommendations = @recommendations.select { |place| place.bairro.downcase == @location.downcase }
+  end
 
   # GET /recos/1
   # GET /recos/1.json
@@ -14,8 +15,10 @@ class RecommendationsController < ApplicationController
   end
 
   # GET /recos/new
+  # RECOS É O MEU CARALHO
   def new
-    @recommendations = current_user.recosmmendation.build
+    # raise
+    @recommendation = current_user.recommendations.build
     @recommendation.bairro = params[:location]
   end
 
@@ -31,7 +34,7 @@ class RecommendationsController < ApplicationController
     respond_to do |format|
       if @recommendation.save
         format.html { redirect_to @recommendation, notice: 'Recommendation was successfully created.' }
-        format.json { render :show, status: :created, location: @reco }
+        format.json { render :show, status: :created, location: @recommendation }
       else
         format.html { render :new }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }
@@ -45,7 +48,7 @@ class RecommendationsController < ApplicationController
     respond_to do |format|
       if @recommendation.update(recommendation_params)
         format.html { redirect_to @recommendation, notice: 'Recommendation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reco }
+        format.json { render :show, status: :ok, location: @recommendation }
       else
         format.html { render :edit }
         format.json { render json: @recommendation.errors, status: :unprocessable_entity }

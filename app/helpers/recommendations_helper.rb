@@ -1,2 +1,2 @@
-module RecosHelper
+module RecommendationsHelper
 end
