@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :recommendations do
     member do
       put "like", to: "recommendations#upvote"

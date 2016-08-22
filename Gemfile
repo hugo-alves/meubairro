@@ -10,6 +10,7 @@ gem 'devise'
 gem 'redis'
 gem 'rest-client'
 gem 'geocoder'
+gem 'ratyrate'
 
 gem 'sass-rails'
 gem 'jquery-rails'

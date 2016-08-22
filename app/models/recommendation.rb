@@ -6,7 +6,7 @@ class Recommendation < ActiveRecord::Base
   geocoded_by :address   # can also be an IP address
   after_validation :geocode
   # after_create :send_reco
-
+  ratyrate_rateable 'rating'
   private
 
   def send_reco

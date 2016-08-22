@@ -186,6 +186,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    ratyrate (1.2.2.alpha)
     redis (3.3.1)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
@@ -258,6 +259,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails_12factor
   rails_db
+  ratyrate
   redis
   rest-client
   sass-rails
