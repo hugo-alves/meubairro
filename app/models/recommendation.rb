@@ -1,4 +1,4 @@
-class Reco < ActiveRecord::Base
+class Recommendation < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
   acts_as_commontable
   acts_as_votable

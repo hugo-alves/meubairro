@@ -3,18 +3,18 @@
 
 <div id="mainContainer" class="container-fluid">
   <div class="panel panel-default">
-    <div class="panel-heading"><%= @reco.name %></div>
+    <div class="panel-heading"><%= @recommendation.name %></div>
     <div class="panel-body">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <p><%= cl_image_tag(@reco.photo, class:"img-responsive img-show", :crop => :fill)%></p>
+              <p><%= cl_image_tag(@recommendation.photo, class:"img-responsive img-show", :crop => :fill)%></p>
             </div>
             <div class="panel-body">
-              <p class="description"><%= @reco.description %> </p>
-              <p class="address">Address:</p> <%= @reco.address %> 
-              <p class="category">Category: <%= @reco.category %> </p>
+              <p class="description"><%= @recommendation.description %> </p>
+              <p class="address">Address:</p> <%= @recommendation.address %>
+              <p class="category">Category: <%= @recommendation.category %> </p>
             </div>
           </div>
         </div>
@@ -22,6 +22,6 @@
     </div>
   </div>
 
-<%= commontator_thread(@reco) %>
-<%= link_to 'Edit', edit_reco_path(@reco) %> |
-<%= link_to 'Back', recos_path %>
+<%= commontator_thread(@recommendation) %>
+<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+<%= link_to 'Back', recommendations_path %>

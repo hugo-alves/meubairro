@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819133102) do
+ActiveRecord::Schema.define(version: 20160822135823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160819133102) do
 
   add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
 
-  create_table "recos", force: :cascade do |t|
+  create_table "recommendations", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "rating"

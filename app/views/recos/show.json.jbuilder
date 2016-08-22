@@ -1,1 +1,1 @@
-json.partial! "recos/reco", reco: @reco
+json.partial! "recos/reco", recommendation: @recommendation
