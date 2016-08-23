@@ -4,6 +4,7 @@ class Recommendation < ActiveRecord::Base
   acts_as_votable
   default_scope { order(:cached_votes_up => :desc) }
   belongs_to :user
+  has_many :bookmarks
   geocoded_by :address   # can also be an IP address
   after_validation :geocode
   # after_create :send_reco
