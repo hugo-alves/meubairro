@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Recommendation.destroy_all
 Recommendation.create!(name: "Puppet Museum",
                    address: "Rua da Esperanca 146 Lisbon 1200-638, Portugal",
                    weather_type: "rain",

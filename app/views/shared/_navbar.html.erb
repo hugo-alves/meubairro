@@ -35,9 +35,9 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to "Register", new_user_registration_path, class:"btn btn-default", remote: true, 'data-toggle' => 'modal', 'data-target' => '#signUpModal', method: :get %>
+      <%= link_to "Register", new_user_registration_path, class:"btn btn-default", remote: true, 'data-toggle' => 'modal', 'data-target' => '#signUpModal', method: :get, class:"navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to "Login", new_user_session_path, remote: true, 'data-toggle' => 'modal', 'data-target' => '#logInModal', method: :get, class:"btn btn-success" %>
+      <%= link_to "Login", new_user_session_path, remote: true, 'data-toggle' => 'modal', 'data-target' => '#logInModal', method: :get, class:"navbar-wagon-item navbar-wagon-link" %>
 
     <% end %>
 

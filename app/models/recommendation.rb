@@ -7,6 +7,7 @@ class Recommendation < ActiveRecord::Base
   has_many :bookmarks
   geocoded_by :address   # can also be an IP address
   after_validation :geocode
+  validates :bairro, presence: true
   # after_create :send_reco
   ratyrate_rateable 'rating'
   private

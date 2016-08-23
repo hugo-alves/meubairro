@@ -1,27 +1,68 @@
-<p id="notice"><%= notice %></p>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
-<div id="mainContainer" class="container-fluid">
-  <div class="panel panel-default">
-    <div class="panel-heading"><%= @recommendation.name %></div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <p><%= cl_image_tag(@recommendation.photo, class:"img-responsive img-show", :crop => :fill)%></p>
+      <h2 class="text-center">Here is the place you added</h2>
+
+      <%= link_to recommendation_path(@recommendation), :class => "link" do%>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="card-picture" style="background-image: url('<%= cl_image_path(@recommendation.photo, width: 500, height: 300) %>')">
+            <div class="card-hover">
+
+              <p><%= @recommendation.description %></p>
+
             </div>
-            <div class="panel-body">
-              <p class="description"><%= @recommendation.description %> </p>
-              <p class="address">Address:</p> <%= @recommendation.address %>
-              <p class="category">Category: <%= @recommendation.category %> </p>
+          </div>
+          <div class="card-infos">
+            <div class="card-title">
+              <h3><%= @recommendation.name %></h3>
+            </div>
+            <div>
+              <ul class="card-weather list-inline">
+                <li>
+                  <% if @recommendation.weather_type == "clear"%>
+                    <%= icon_weather("clear") %>
+                  <% elsif @recommendation.weather_type == "clouds"%>
+                    <%= icon_weather("clouds") %>
+                  <% elsif @recommendation.weather_type == "rain"%>
+                    <%= icon_weather("clear") %>
+                    <%= icon_weather("clouds") %>
+                    <%= icon_weather("rain") %>
+                  <% elsif @recommendation.weather_type == "drizzle"%>
+                    <%= icon_weather("clear") %>
+                    <%= icon_weather("clouds") %>
+                  <% elsif @recommendation.weather_type == "storm"%>
+                    <%= icon_weather("clear") %>
+                    <%= icon_weather("drizzle") %>
+                    <%= icon_weather("rain") %>
+                    <%= icon_weather("thunderstorm") %>
+                  <% end %>
+                </li>
+              </ul>
+              <% if params[:latitude].present? %>
+                <div class="text-right distance">
+                  <%= (@recommendation.distance_from([params[:latitude],params[:longitude]], :km) * 1000).round %> m <i class="fa fa-map-marker"></i>
+                </div>
+              <% end %>
+
             </div>
           </div>
         </div>
+        <div class="card-footer">
+          <img src="http://placehold.it/30x30" alt="" class="avatar">
+          <a href="#"><%= current_user.email %></a>
+        </div>
       </div>
+
+      <% end %>
+
+      <%= commontator_thread(@recommendation) %>
+      <%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+      <%= link_to 'Back', recommendations_path %>
     </div>
   </div>
+</div>
 
-<%= commontator_thread(@recommendation) %>
-<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
-<%= link_to 'Back', recommendations_path %>
