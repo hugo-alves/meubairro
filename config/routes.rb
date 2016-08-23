@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       put "dislike", to: "recommendations#downvote"
     end
   end
+  devise_for :users,
+    controllers: { registrations: 'registrations' }
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
   mount Commontator::Engine => '/commontator'
 
   root to: 'pages#home'
