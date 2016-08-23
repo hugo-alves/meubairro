@@ -11,6 +11,9 @@ gem 'redis'
 gem 'rest-client'
 gem 'geocoder'
 gem 'ratyrate'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 
 gem 'sass-rails'
 gem 'jquery-rails'
