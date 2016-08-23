@@ -1,26 +1,28 @@
-<div class="container">
+<div class="container recommendation-new-container padded">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1 class="text-center">New Recommendation <%= params[:location] ? "at" : ""%> <%= params[:location]%></h1>
       <%= simple_form_for(@recommendation) do |f| %>
       <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :name %>
-          <%= f.input :description %>
-          <%= f.input :rating %>
-          <%= f.input :bairro,:readonly => true %>
-          <%= f.input :address %>
-          <%= f.input :day_time %>
-          <%= f.input :weather_type %>
-          <%= f.input :category %>
-          <%= f.input :photo %>
+          <%= f.input :name, placeholder: "Jardim da Parada, Bifana @ Rosita, Jogging.." %>
+          <%= f.input :description, placeholder: "Best bifana in Lisbon" %>
+          <%= f.input :bairro, collection: User::BAIRROS, prompt: "select a bairro" %>
+          <%= f.input :address, placeholder: "12, rua da Sao Bento" %>
+          <%= f.input :weather_type, collection: %w(clear rain thunderstorm drizzle snow clouds), prompt: "Choose best suited weather" %>
+          <%= f.input :photo, placeholder: "" %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
 
       <div class="form-actions">
-        <%= f.button :submit %>
+        <%= f.button :submit, class: "btn btn-primary", style: "width: 100%" %>
       </div>
       <% end %>
+
+      <hr>
+      <%= link_to 'Back', recommendations_path %>
+
 
 
     </div>
@@ -28,5 +30,4 @@
   </div>
 
 </div>
-
 

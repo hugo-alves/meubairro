@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
   has_many :recommendations
   has_many :bookmarks
   acts_as_commontator
+  BAIRROS = ["Ajuda", "Alcântara", "Alvalade", "Areeiro", "Arroios",
+                  "Avenidas Novas", "Beato", "Belém", "Benfica", "Campolide",
+                  "Campolide", "Campo de Ourique", "Carnide", "Estrela",
+                  "Lumiar", "Marquês de Pombal", "Marvila", "Misericórdia",
+                  "Parque das Nações", "Penha França", "Santa Clara",
+                  "Santa Maria Maior", "São Domingos", "São Vicente"]
 end
