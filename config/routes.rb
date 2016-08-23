@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   resources :recommendations do
+    resources :bookmarks, only: [:create, :index, :delete]
     member do
       put "like", to: "recommendations#upvote"
       put "dislike", to: "recommendations#downvote"
     end
   end
+  devise_for :users,
+    controllers: { registrations: 'registrations' }
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -13,7 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
   mount Commontator::Engine => '/commontator'
 
   root to: 'pages#home'
