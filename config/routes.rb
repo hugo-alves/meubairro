@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   resources :recommendations do
+    resources :bookmarks, only: [:create, :index, :delete]
     member do
       put "like", to: "recommendations#upvote"
       put "dislike", to: "recommendations#downvote"
