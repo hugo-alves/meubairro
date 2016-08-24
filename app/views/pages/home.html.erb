@@ -2,14 +2,11 @@
   <div class="banner-content">
     <h1>My Neighbourghood</h1>
     <p>Show everyone that you live in the best neighbourhood</p>
-    <%= link_to "Tell me more", "#", class:"btn btn-default btn-lg" %>
+    <%= link_to "Tell me more", "#informations", class:"btn btn-default btn-lg" %>
   </div>
 </div>
 
-<div class="container">
-
-</div>
-<div class="container image-list text-center">
+<div class="container image-list text-center" id="informations">
   <div class="row">
     <div class="col-xs-12 col-sm-4 list-member">
       <h3>Lorem ipsum</h3>
@@ -26,8 +23,8 @@
   </div>
 </div>
 
-<div class="container text-center">
-  <h2>Select a neighbourhood to look for places</h2>
+<div class="container text-center" id="mapContainer">
+  <h2>Pick a neighbourhood to look for cool places</h2>
 
   <%= render 'shared/map', path: recommendations_path %>
 </div>
