@@ -1,11 +1,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
 
-      <h2 class="text-center">Here is the place you added</h2>
+      <h2 class="text-center"><%= @recommendation.name %></h2>
 
-      <%= link_to recommendation_path(@recommendation), :class => "link" do%>
 
       <div class="card">
         <div class="card-body">
@@ -18,7 +17,7 @@
           </div>
           <div class="card-infos">
             <div class="card-title">
-              <h3><%= @recommendation.name %></h3>
+              <h3><%= @recommendation.description %></h3>
             </div>
             <div>
               <ul class="card-weather list-inline">
@@ -52,12 +51,15 @@
           </div>
         </div>
         <div class="card-footer">
+          Added by 
           <img src="http://placehold.it/30x30" alt="" class="avatar">
-          <a href="#"><%= current_user.email %></a>
+          <% if current_user.name? %>
+            <a href="#"><%= current_user.name %></a>
+          <% end %>
         </div>
       </div>
 
-      <% end %>
+
 
       <%= commontator_thread(@recommendation) %>
       <%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
