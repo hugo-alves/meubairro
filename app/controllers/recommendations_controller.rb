@@ -33,7 +33,7 @@ class RecommendationsController < ApplicationController
     @recommendation.user_id = current_user.id
     respond_to do |format|
       if @recommendation.save
-        format.html { redirect_to @recommendation, notice: 'Recommendation was successfully created.' }
+        format.html { redirect_to user_recommendations_path(current_user), notice: 'Recommendation was successfully created.' }
         format.json { render :show, status: :created, location: @recommendation }
       else
         format.html { render :new }
