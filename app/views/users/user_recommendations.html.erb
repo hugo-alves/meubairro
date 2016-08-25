@@ -1,2 +1,15 @@
-<h1>Users#recommendations</h1>
-<%= @recommendations %>
+<div class="weather-report text-center"><h2>These are your recommendations</h2></div>
+<div class="container">
+  <div class="row">
+    <% @recommendations.each do |r| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= render 'shared/recommendations', r: r %>
+      </div>
+    <% end %>
+    <% if @recommendations.empty? %>
+    <div class="text-center no-result">
+      <h3>Ops... You have no recommendations</h3>
+    </div>
+    <% end %>
+  </div>
+</div>
