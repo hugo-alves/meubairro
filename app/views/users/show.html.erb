@@ -1,0 +1,38 @@
+<div class="container">
+  <% if @user.name.empty? %>
+    <p>Sorry, you need to fill your profile</p>
+    <%= link_to edit_user_registration_path do %>
+      <i class="fa fa-user"></i> <%= t(".profile", default: "Edit profile") %>
+    <% end %>
+  <% else %>
+</div>
+
+<div class="user-wrapper">
+  <div class="container">
+  <h2 class="text-center">Profile</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <label> Name: </label>
+        <p><%= @user.name %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <label> Email: </label>
+        <p><%= @user.email %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <label>Bairro:</label>
+        <p><%= @user.bairro %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="container text-center">
+    <%= link_to "Edit Profile", edit_user_registration_path, class:"btn btn-primary" %>
+    <%= link_to "Recommendations", user_recommendations_path(current_user), class:"btn btn-success" %>
+  </div>
+</div>

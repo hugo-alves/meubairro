@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
+  get 'users/recommendations'
+
   post '/rate' => 'rater#create', :as => 'rate'
   resources :recommendations do
     resources :bookmarks, only: [:create, :index, :delete]
@@ -11,6 +15,9 @@ Rails.application.routes.draw do
     controllers: { registrations: 'registrations',
                    omniauth_callbacks: 'users/omniauth_callbacks'
                  }
+
+  get 'users/:id/show', to: 'users#show', as: 'user_profile'
+  get 'users/:id/recommendations', to: 'users#user_recommendations', as: 'user_recommendations'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
