@@ -1,5 +1,5 @@
 <div class="container">
-  <% if @user.name.empty? %>
+  <% if @user.first_name.nil? %>
     <p>Sorry, you need to fill your profile</p>
     <%= link_to edit_user_registration_path do %>
       <i class="fa fa-user"></i> <%= t(".profile", default: "Edit profile") %>

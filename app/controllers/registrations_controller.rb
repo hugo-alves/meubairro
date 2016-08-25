@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :bairro)
+    params.require(:user).permit(:email, :name, :bairro, :first_name, :last_name)
   end
 
 end
