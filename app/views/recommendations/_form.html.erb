@@ -9,8 +9,10 @@
           <%= f.input :name, placeholder: "Jardim da Parada, Bifana @ Rosita, Jogging.." %>
           <%= f.input :description, placeholder: "Best bifana in Lisbon" %>
           <%= f.input :bairro, collection: User::BAIRROS, prompt: "select a bairro" %>
-          <%= f.input :address, placeholder: "12, rua da Sao Bento" %>
+          <%= f.input :address, placeholder: "Insert adress" %>
           <%= f.input :weather_type, collection: %w(clear rain thunderstorm drizzle snow clouds), prompt: "Choose best suited weather" %>
+          <%= f.input :latitude, as: :hidden %>
+          <%= f.input :longitude, as: :hidden %>
           <%= f.input :photo, placeholder: "" %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>

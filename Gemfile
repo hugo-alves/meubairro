@@ -13,6 +13,7 @@ gem 'geocoder'
 gem 'ratyrate'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "gmaps4rails"
 
 
 gem 'sass-rails'
