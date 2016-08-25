@@ -38,7 +38,7 @@
         <div class="card-footer">
           <% if  @recommendation.user_id? && User.find(@recommendation.user_id).first_name? %>
             Suggested by
-            <img src="http://placehold.it/30x30" alt="" class="avatar">
+            <img src="#{User.find(@recommendation.user_id).facebook_picture_url}" alt="" class="avatar">
             <a href="#"><%= User.find(@recommendation.user_id).first_name %></a>
           <% end %>
         </div>
