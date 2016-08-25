@@ -38,7 +38,7 @@
         <div class="card-footer">
           <% if  @recommendation.user_id? && User.find(@recommendation.user_id).first_name? %>
             Suggested by
-            <%= image_path("#{User.find(@recommendation.user_id).facebook_picture_url}") %>
+            <%= image_tag User.find(@recommendation.user_id).facebook_picture_url %>
             <a href="#"><%= User.find(@recommendation.user_id).first_name %></a>
           <% end %>
         </div>
