@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <% if  @recommendation.user_id? && @recommendation.user_id.name? %>
+          <% if  @recommendation.user_id? && @recommendation.user_id.first_name? %>
             Suggested by
             <img src="http://placehold.it/30x30" alt="" class="avatar">
             <a href="#"><%= @recommendation.user_id.first_name %></a>
