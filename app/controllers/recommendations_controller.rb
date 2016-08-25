@@ -67,14 +67,39 @@ class RecommendationsController < ApplicationController
   end
 
   def upvote
-    @recommendation = Recommendation.find(params[:id])
-    @recommendation.upvote_by current_user
-    redirect_to :back
+     @recommendation = Recommendation.find(params[:id])
+     respond_to do |format|
+     unless current_user.voted_for? @recommendation
+       format.html { redirect_to :back }
+       format.json { head :no_content }
+       format.js { render :layout => false }
+       @recommendation.save
+       @recommendation.upvote_by current_user
+     else
+       flash[:danger] = 'You allready voted this recommendation'
+       format.html { redirect_to :back }
+       format.json { head :no_content }
+       format.js
+     end
+    end
   end
+
   def downvote
-    @recommendation = Recommendation.find(params[:id])
-    @recommendation.downvote_by current_user
-    redirect_to :back
+     @recommendation = Recommendation.find(params[:id])
+     respond_to do |format|
+     unless current_user.voted_for? @recommendation
+       format.html { redirect_to :back }
+       format.json { head :no_content }
+       format.js { render :layout => false }
+       @recommendation.save
+       @recommendation.downvote_by current_user
+     else
+       flash[:danger] = 'You allready voted this recommendation'
+       format.html { redirect_to :back }
+       format.json { head :no_content }
+       format.js
+     end
+    end
   end
 
   private

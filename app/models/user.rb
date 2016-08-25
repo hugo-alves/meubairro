@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # acts_as_token_authenticatable
   include Honor
+  acts_as_voter
   ratyrate_rater
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
