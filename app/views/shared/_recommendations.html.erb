@@ -1,0 +1,20 @@
+<%= link_to recommendation_path(r), :class => "link" do%>
+<div class="card">
+  <div class="card-body">
+    <div class="card-picture" style="background-image: url('<%= cl_image_path(r.photo, width: 500, height: 300) %>')">
+    </div>
+    <div class="card-infos">
+      <div class="card-title">
+        <h3><%= r.name.truncate(25) + "..." %></h3>
+        <p class="rating"><%= rating_for r, "rating", disabled: true, star_path: '/images/ratyrate' %></p>
+      </div>
+      <div>
+        <ul class="card-weather list-inline">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+  </div>
+</div>
+<% end %>
