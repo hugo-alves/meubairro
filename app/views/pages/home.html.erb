@@ -1,7 +1,7 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path('background.jpeg')%>);">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(http://www.anaserro.com/campo-de-ourique/img/image-5.jpg);">
   <div class="banner-content">
-    <h1>My Neighbourghood</h1>
-    <p>Show everyone that you live in the best neighbourhood</p>
+    <h1>My Neighborhood</h1>
+    <p>Show everyone the best things your neighborhood has to offer</p>
     <%= link_to "Tell me more", "#informations", class:"btn btn-default btn-lg" %>
   </div>
 </div>
@@ -9,22 +9,28 @@
 <div class="container image-list text-center" id="informations">
   <div class="row">
     <div class="col-xs-12 col-sm-4 list-member">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis ligula ut risus eleifend congue. Donec ac ligula mollis, pharetra mi eu, euismod nisi. Sed in libero.</p>
+      <%= image_tag("place.png") %>
+      <h3>Amazing Places</h3>
+      <p>Do you live near a small beautiful garden that almost no one knows about? Is there a beautiful church in your neighborhood?</p>
+      <p>Post them here.</p>
     </div>
     <div class="col-xs-12 col-sm-4 list-member">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis ligula ut risus eleifend congue. Donec ac ligula mollis, pharetra mi eu, euismod nisi. Sed in libero.</p>
+      <%= image_tag("product.png") %>
+      <h3>Great Products</h3>
+      <p>Does the kiosk down the street serve the best strawberry ice-cream you've ever tried? Are the croissants from the caffe you go everyday to cry for?</p>
+      <p>Post them here.</p>
     </div>
     <div class="col-xs-12 col-sm-4 list-member">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis ligula ut risus eleifend congue. Donec ac ligula mollis, pharetra mi eu, euismod nisi. Sed in libero.</p>
+      <%= image_tag("activity.png") %>
+      <h3>Cool activities </h3>
+      <p>Do you have a favorite route to run in the morning? Is the football field near you a great place to get healthy with a couple of friends?</p>
+      <p>Post them here.</p>
     </div>
   </div>
 </div>
 
 <div class="container text-center" id="mapContainer">
-  <h2>Pick a neighbourhood to look for cool places</h2>
+  <h2>Pick a neighborhood to look for cool places</h2>
 
   <%= render 'shared/map', path: recommendations_path %>
 </div>
