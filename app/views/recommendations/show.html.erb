@@ -9,38 +9,23 @@
       <div class="card">
         <div class="card-body">
           <div class="card-picture" style="background-image: url('<%= cl_image_path(@recommendation.photo, width: 500, height: 300) %>')">
-            <div class="card-hover">
+          <div class="card-hover">
+            <ul class="list-inline text-center hover-btns">
+              <li>
+                <%= link_to "http://maps.google.com/maps?q=#{@recommendation.name}", :target => '_blank'  do %>
+                  <i class="fa fa-map"></i>
+                <% end %>
+                <h3>Open map</h3>
+              </li>
+            </ul>
 
-              <p><%= @recommendation.description %></p>
-
-            </div>
+          </div>
           </div>
           <div class="card-infos">
             <div class="card-title">
-              <h3><%= @recommendation.description %></h3>
+              <h3 class="description"><%= @recommendation.description %></h3>
             </div>
             <div>
-              <ul class="card-weather list-inline">
-                <li>
-                  <% if @recommendation.weather_type == "clear"%>
-                    <%= icon_weather("clear") %>
-                  <% elsif @recommendation.weather_type == "clouds"%>
-                    <%= icon_weather("clouds") %>
-                  <% elsif @recommendation.weather_type == "rain"%>
-                    <%= icon_weather("clear") %>
-                    <%= icon_weather("clouds") %>
-                    <%= icon_weather("rain") %>
-                  <% elsif @recommendation.weather_type == "drizzle"%>
-                    <%= icon_weather("clear") %>
-                    <%= icon_weather("clouds") %>
-                  <% elsif @recommendation.weather_type == "storm"%>
-                    <%= icon_weather("clear") %>
-                    <%= icon_weather("drizzle") %>
-                    <%= icon_weather("rain") %>
-                    <%= icon_weather("thunderstorm") %>
-                  <% end %>
-                </li>
-              </ul>
               <% if params[:latitude].present? %>
                 <div class="text-right distance">
                   <%= (@recommendation.distance_from([params[:latitude],params[:longitude]], :km) * 1000).round %> m <i class="fa fa-map-marker"></i>
@@ -51,10 +36,10 @@
           </div>
         </div>
         <div class="card-footer">
-          Added by 
-          <img src="http://placehold.it/30x30" alt="" class="avatar">
-          <% if current_user.name? %>
-            <a href="#"><%= current_user.name %></a>
+          <% if  @recommendation.user_id? && @recommendation.user_id.name? %>
+            Suggested by
+            <img src="http://placehold.it/30x30" alt="" class="avatar">
+            <a href="#"><%= @recommendation.user_id.name %></a>
           <% end %>
         </div>
       </div>

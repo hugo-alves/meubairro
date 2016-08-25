@@ -11,31 +11,32 @@
 <% @recommendations.each do |recommendation| %>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6 col-xs-12 col-md-offset-3" >
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <div class="well">
         <div class="panel panel-default">
           <div class="panel-heading">
             <%= link_to recommendation_path(recommendation) do%>
             <p><%= cl_image_tag recommendation.photo, :class => "img-responsive img-show" %></p>
-            <div class="card-name"><%= recommendation.name %></div>
             <% end %>
           </div>
           <div class="panel-body">
-          <div class="card-name"><%= recommendation.name %></div>
+          <%= link_to recommendation_path(recommendation) do%>
+              <div class="card-name" style="text-decoration:none"><%= recommendation.name %></div>
+          <% end %>
             <div class="clearfix"></div>
             <hr>
             <p class="description"><%= recommendation.description %></p>
-            <p><%= recommendation.address %></p>
+            <p class="card-address"><%= recommendation.address %></p>
             <% if params[:latitude].present? %>
             <p>Distance: <%= (recommendation.distance_from([params[:latitude],params[:longitude]], :km) * 1000).round %> meters</p>
             <% end %>
             <div class="footer-card">
-              <%= link_to like_recommendation_path(recommendation), method: :put, class: "btn btn-success btn-lg" do %>
+              <%= link_to like_recommendation_path(recommendation), method: :put, class: "btn btn-success btn-lg  btn-block" do %>
               <span class="glyphicon glyphicon-chevron-up"></span>
               <%= recommendation.get_upvotes.size %>
               <% end %>
-              <%= link_to dislike_recommendation_path(recommendation), method: :put, class: "btn btn-danger btn-lg" do %>
-              <span class="glyphicon glyphicon-chevron-down">
+              <%= link_to dislike_recommendation_path(recommendation), method: :put, class: "btn btn-danger btn-lg  btn-block" do %>
+              <span class="glyphicon glyphicon-chevron-down"></span>
                 <%= recommendation.get_downvotes.size %>
                 <% end %>
                 <div>
