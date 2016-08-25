@@ -31,14 +31,14 @@
             <p>Distance: <%= (recommendation.distance_from([params[:latitude],params[:longitude]], :km) * 1000).round %> meters</p>
             <% end %>
             <div class="footer-card">
-              <%= link_to like_recommendation_path(recommendation), method: :put, class: "btn btn-success btn-lg  btn-block" do %>
-              <span class="glyphicon glyphicon-chevron-up"></span>
-              <%= recommendation.get_upvotes.size %>
+              <%= link_to like_recommendation_path(recommendation), method: :put, :remote => true, class: "btn btn-success btn-lg  btn-block" do %>
+                <span class="glyphicon glyphicon-chevron-up"></span>
+                <span id="upup-<%= recommendation.id %>"> <%= recommendation.get_upvotes.size %></span>
               <% end %>
-              <%= link_to dislike_recommendation_path(recommendation), method: :put, class: "btn btn-danger btn-lg  btn-block" do %>
-              <span class="glyphicon glyphicon-chevron-down"></span>
-                <%= recommendation.get_downvotes.size %>
-                <% end %>
+              <%= link_to dislike_recommendation_path(recommendation), method: :put, :remote => true, class: "btn btn-danger btn-lg  btn-block" do %>
+                <span class="glyphicon glyphicon-chevron-down"></span>
+                <span id="downdown-<%= recommendation.id %>"><%= recommendation.get_downvotes.size %></span>
+              <% end %>
                 <div>
                 </div>
               </div>
