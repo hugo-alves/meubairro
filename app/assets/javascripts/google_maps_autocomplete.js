@@ -15,7 +15,7 @@ function onPlaceChanged() {
   var place = this.getPlace();
   var latitude = place.geometry.location.lat()
   var longitude = place.geometry.location.lng()
-  $("#latitude").val(latitude);
-  $("#longitude").val(longitude);
+  $("#recommendation_latitude").val(latitude);
+  $("#recommendation_longitude").val(longitude);
   // $('#recommendation_address').trigger('blur').val(components.address);
 }
