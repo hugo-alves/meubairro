@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
   BAIRROS = ["Ajuda", "Alcântara", "Alvalade", "Areeiro", "Arroios",
                   "Avenidas Novas", "Beato", "Belém", "Benfica",
                   "Campolide", "Campo de Ourique", "Carnide", "Estrela",
-                  "Lumiar", "Marquês de Pombal", "Marvila", "Misericórdia",
+                  "Lumiar", "Marvila", "Misericórdia",
                   "Parque das Nações", "Penha França", "Santa Clara",
-                  "Santa Maria Maior", "São Domingos", "São Vicente"]
+                  "Santa Maria Maior", "São Domingos", "São Vicente", "Santo Antônio"]
 
   def self.find_for_facebook(auth)
     user = User.find_by_email(auth.info.email)
