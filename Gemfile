@@ -14,6 +14,8 @@ gem 'ratyrate'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "gmaps4rails"
+gem 'carrierwave'
+
 
 
 gem 'sass-rails'

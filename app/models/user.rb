@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
   include Honor
   acts_as_voter
   ratyrate_rater
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-  has_many :recommendations
-  has_many :bookmarks
+  mount_uploader :facebook_picture_url, FacebookProfileUrlUploader
+  has_many :recommendations, :dependent => :destroy
+  has_many :bookmarks, :dependent => :destroy
   acts_as_commontator
   BAIRROS = ["Ajuda", "Alcântara", "Alvalade", "Areeiro", "Arroios",
                   "Avenidas Novas", "Beato", "Belém", "Benfica",
@@ -26,7 +28,7 @@ class User < ActiveRecord::Base
     user.password = Devise.friendly_token[0,20] if user.encrypted_password.empty?
     user.first_name = auth.info.first_name
     user.last_name = auth.info.last_name
-    user.facebook_picture_url = auth.info.image
+    user.remote_facebook_picture_url_url = auth.info.image
     user.token = auth.credentials.token
     user.token_expiry = Time.at(auth.credentials.expires_at)
 
