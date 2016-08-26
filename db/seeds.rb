@@ -58,7 +58,7 @@ Recommendation.create!(name: "Academia das Ciências",
                    remote_photo_url: "http://www.pavconhecimento.pt/roteiro3_locais_conhecimento/pt/img/01_academia_das_ciencias_b.jpg")
 Recommendation.create!(name: "Praca Marques do Pombal",
                    address: "Avenida da Liberdade Rotunda, Lisbonne, Portugal",
-                   weather_type: "sun",
+                   weather_type: "clear",
                    description: "It's a very big roundabout that symbolizes the center of Lisbon.
                     In the middle is the statue of Marques do Pombal ( the reason for the square name ) ,the Prime Minister of Portugal after the big earthquake in 1755 that destroyed Lisbon. He was the main responsable for the reconstraction and the way dowtown Lisbon looks now.
                     The square has a main subway station with connection to other lines and many of the bus lines in Lisbon pass the square.
@@ -73,7 +73,7 @@ Recommendation.create!(name: "Praca Marques do Pombal",
 
 Recommendation.create!(name: "Parque Eduardo VII",
                    address: "Avenida Sidónio País, Lisbonne 1070-051, Portugal",
-                   weather_type: "sun",
+                   weather_type: "clouds",
                    description: "This park is everything! It has a beautiful view and you can explore it all around. It's a bit hard to walk specially if it's really warm, it's a bit of a mountain but very beautiful. I've walked from the top of it till Baixa Chiado and it's was a very pleasant walk, we had some stops for water or ice cream but you'll see one of the most important streets, parks and squares in Lisbon.",
                    bairro: "Avenidas novas",
                    day_time: "day",
@@ -84,7 +84,7 @@ Recommendation.create!(name: "Parque Eduardo VII",
 
 Recommendation.create!(name: "Pastelaria Marques Pombal",
                    address: "Avenida Duque de Loule 113 119, Lisbonne, Portugal",
-                   weather_type: "all",
+                   weather_type: "clear",
                    description: "This pastry shop/diner represents quintessential Lisbon to me. Hectic, lively, great service, frenetic, very friendly, inexpensive, tasty....did I say it had a great vibe! Cross an American diner with a boulangerie and you have an accurate picture in your head.",
                    bairro: "Santo antónio",
                    day_time: "day",
@@ -95,7 +95,7 @@ Recommendation.create!(name: "Pastelaria Marques Pombal",
 
 Recommendation.create!(name: "Confeitaria Marques do Pombal",
                    address: "Avenida Liberdade 244, Lisbonne 1250-149, Portugal",
-                   weather_type: "all",
+                   weather_type: "rain",
                    description: "Good standard of food and choice. Portion sizes good too
                     Didn't fall for the old Portuguese bread basket trick, you can refuse it ! :-)
                     Staff were helpful and attentive but atmosphere in this cafeteria style environment is sadly lacking.
@@ -110,7 +110,7 @@ Recommendation.create!(name: "Confeitaria Marques do Pombal",
 
 Recommendation.create!(name: "Dote Cervejaria Moderna",
                    address: "Rua Barata Salgueiro 37A, Lisbonne 1250-042, Portugal",
-                   weather_type: "all",
+                   weather_type: "rain",
                    description: "We discovered this modernistic eatery by chance while strolling central Lisbon and were pleasantly surprised by the fine service, good wine and tasty offerings on the menu. We ate a nicely prepared sea bream and an excellent portion of gnocci with shrimps, washed down with a generous glass of the house vinho branco. The price was suitably reasonable for a fine midday lunch.",
                    bairro: "Santo antónio",
                    day_time: "day",
@@ -121,7 +121,7 @@ Recommendation.create!(name: "Dote Cervejaria Moderna",
 
 Recommendation.create!(name: "Sushi Cafe Avenida",
                    address: "Rua Barata Salgueiro 28, Lisbonne 1250-044, Portugal",
-                   weather_type: "all",
+                   weather_type: "rain",
                    description: "Groovey trendy interior plus outside verandah. Semi traditional Japanese menu with some fascinating Portuguese twists such as foie gras nigiri sushi. The food is very very good. The service is very good also except for one young lady who seemed bored with us/ annoyed with us/ or simply that's her way. All other staff interactions were fun and engaging.",
                    bairro: "Santo antónio",
                    day_time: "day",
@@ -132,7 +132,7 @@ Recommendation.create!(name: "Sushi Cafe Avenida",
 
 Recommendation.create!(name: "Guilty By Olivier",
                    address: "Rua Barata Salgueiro, 28, Lisboa, Portugal",
-                   weather_type: "all",
+                   weather_type: "clear",
                    description: "Stylish and cosy place.
                     Very friendly staff
                     Good food. (We had the hamburger and a pasta). If you are very hungry... We recommend you to order starter...and/of a dessert...
