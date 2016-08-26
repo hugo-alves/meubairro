@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     user.password = Devise.friendly_token[0,20] if user.encrypted_password.empty?
     user.first_name = auth.info.first_name
     user.last_name = auth.info.last_name
-    user.facebook_picture_url = auth.info.image
+    user.remote_facebook_picture_url_url = auth.info.image
     user.token = auth.credentials.token
     user.token_expiry = Time.at(auth.credentials.expires_at)
 
