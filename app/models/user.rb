@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-  mount_uploader :facebook_picture_url, FacebookProfileUrlUploader
+  mount_uploader :facebook_picture_url, PhotoUploader
   has_many :recommendations, :dependent => :destroy
   has_many :bookmarks, :dependent => :destroy
   acts_as_commontator
