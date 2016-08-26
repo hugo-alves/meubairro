@@ -12,6 +12,8 @@
           <%= f.input :bairro, collection: User::BAIRROS, prompt: "select a bairro"%>
           <%= image_tag current_user.facebook_picture_url, class: "avatar text-center" %>
           <%= f.input :facebook_picture_url, as: :file, label: 'Profile picture' %>
+          <%= f.input :facebook_picture_url_cache, as: :hidden %>
+
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
